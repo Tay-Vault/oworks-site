@@ -95,13 +95,13 @@ section, .faixa, .rodape-bloco { background: var(--bg); color: var(--fg); }
 .clientes-topo { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 64px; }
 .clientes-topo h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 64px; line-height: 1.05; letter-spacing: 0; }
 .clientes-topo p { max-width: 470px; }
-.lista-clientes { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 32px; row-gap: 48px; }
-.cliente { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.lista-clientes { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 32px; row-gap: 32px; }
+.cliente { border-top: 1px solid var(--line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
 .cliente .nome { display: flex; align-items: baseline; gap: 12px; }
-.cliente .num { font-family: var(--serif); font-style: italic; font-size: 34px; line-height: 1; }
-.cliente h3 { font-size: 28px; letter-spacing: -.01em; line-height: 1.1; }
+.cliente .num { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1; }
+.cliente h3 { font-size: 22px; letter-spacing: -.01em; line-height: 1.1; }
 .cliente .seg { font-size: 12px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
-.cliente p { font-size: 17px; line-height: 1.45; }
+.cliente .seg .local::before { content: " · "; }
 .cliente .btn { margin-top: 4px; }
 
 /* marcas com autonomia */
@@ -299,6 +299,12 @@ section, .faixa, .rodape-bloco { background: var(--bg); color: var(--fg); }
   .clientes-topo { margin-bottom: 40px; gap: 20px; }
   .clientes-topo h2 { font-size: 42px; }
   .lista-clientes, .itens4, .etapas { grid-template-columns: 1fr; row-gap: 32px; }
+  .lista-clientes { row-gap: 20px; }
+  .cliente { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; row-gap: 6px; align-items: center; }
+  .cliente .nome, .cliente .seg { grid-column: 1; }
+  .cliente .btn { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
+  .cliente .seg .local { display: block; margin-top: 2px; }
+  .cliente .seg .local::before { content: none; }
   .autonomia .destaque blockquote { font-size: 30px; }
   .itens4 { margin-top: 48px; }
   .contato-bloco { padding-top: 88px; }
