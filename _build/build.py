@@ -285,14 +285,22 @@ def escrever(caminho, conteudo):
     print("ok", caminho)
 
 
+def seg_lista(seg):
+    """Segmento e local em partes separadas, para a quebra no celular acontecer por sentido."""
+    if " · " not in seg:
+        return f'<span>{seg}</span>'
+    segmento, local = seg.split(" · ", 1)
+    local = ", ".join(parte.replace(" ", "\u00a0") for parte in local.split(", "))
+    return f'<span>{segmento}</span><span class="local">{local}</span>'
+
+
 # ---------------------------------------------------------------- Início
 def pagina_inicio():
     lista = []
     for c in CASES:
         lista.append(f"""<li class="cliente">
         <div class="nome"><span class="num">{c['n']}</span><h3>{c['nome']}</h3></div>
-        <p class="seg">{c['seg']}</p>
-        <p>{br(c['lista'])}</p>
+        <p class="seg">{seg_lista(c['seg'])}</p>
         <a class="btn pequeno" href="/clientes/{c['slug']}/" aria-label="Explore o case {esc(c['nome'])}">Explore →</a>
       </li>""")
     itens = [("01", "Guia da marca", "Como a marca fala, se mostra e\nse aplica, reunido em um só lugar."),
